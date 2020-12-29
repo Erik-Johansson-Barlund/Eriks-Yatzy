@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <title>Startsida</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+  </head>
+  <body>
+      <h1 id="headline">Yatzy!</h1>
+      <div class="wrapper">
+        <div class="score_board">
+          <div class="rules">
+            <div class="dark">Spelare/Player</div>
+            <div>Ettor/Ones</div>
+            <div>Tvåor/Twos</div>
+            <div>Treor/Threes</div>
+            <div>Fyror/Fours</div>
+            <div>Femmor/Fives</div>
+            <div>Sexor/Sixes</div>
+            <div class="dark">Summa/Sum</div>
+            <div class="dark">Bonus</div>
+            <div>Par/Pair</div>
+            <div>Två par/Two pairs</div>
+            <div>Tretal/Three of a kind</div>
+            <div>Fyrtal/Four of a kind</div>
+            <div>Liten Stege/Small straight</div>
+            <div>Stor stege/Large straight</div>
+            <div>Kåk/Full house</div>
+            <div>Chans/Chance</div>
+            <div>Yatzy!</div>
+            <div class="dark">Totalt/Total</div>
+          </div>  
+          <div class="player player1">
+            <div class="light"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="light"></div>
+          </div>
+          <div class="player player2">
+            <div class="light"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="light"></div>
+          </div>
+          <div class="player player3">
+            <div class="light"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="light"></div>
+          </div>
+          <div class="player player4">
+            <div class="light"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="free round1"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="free round2"></div>
+            <div class="light"></div>
+          </div>
+        </div>
+      
+       
+        <div class="dice-wrapper">
+          <div class="dicediv">
+            
+            <div class="die"> 
+              <label for="die1">
+                <img src="images/dice/blank.png" width="75px">
+              </label>
+              <input type="checkbox" value="die1" id="die1" disabled="true"><br>
+              
+            </div> 
+            <div class="die">
+              <label for="die2">
+                 <img src="images/dice/blank.png" width="75px">
+              </label>
+              <input type="checkbox" value="die2" id="die2" disabled="true"><br>
+              
+            </div> 
+            <div class="die">
+              <img src="images/dice/blank.png" width="75px">
+              <input type="checkbox" value="die3" id="die3" disabled="true"><br>
+            </div> 
+            <div class="die">
+              <img src="images/dice/blank.png" width="75px">
+              <input type="checkbox" value="die4" id="die4" disabled="true"><br>
+            </div>  
+            <div class="die">
+              <img src="images/dice/blank.png" width="75px">
+              <input type="checkbox" value="die5" id="die5" disabled="true"><br>
+            </div> 
+          </div>
+            <div class="throw">
+              <p id="throws-left">Antal kast kvar: </p>
+              <button type="button" id="checkdice">Kasta tärningar</button>
+            </div>
+            <div class="users-wrapper">
+              <div class="user avatar1"></div>
+              <div class="user avatar2"></div>
+              <div class="user avatar3"></div>
+              <div class="user avatar4"></div>
+            </div>
+            <button type="button" id="start">Starta spel</button>
+          </div>
+        </div>
+      </div>
+      <div id="splash">
+        <div id="splash-content">
+        <h2>Välkommen till Yatzy!</h2>
+        <p id="name-label">Hur många spelare?</p>
+        <div id="no-of-players">
+          <div><button class="btn" id="btn1" value="1" type="button">1</button></div><div><button class="btn" id="btn2" value="2" type="button">2</button></div>
+          <div><button class="btn" id="btn3" value="3" type="button">3</button></div><div><button class="btn" id="btn4" value="4" type="button">4</button></div>
+        </div>
+        <div id="player-info">
+          
+          <input type="text" id="input-name">
+          <p>Välj en avatar</p>
+          <div id="avatars">
+            <div class="avatar" value="1"><img src="images/icons/1.svg" width="80px"></div>
+            <div class="avatar"><img src="images/icons/2.svg" width="80px"></div>
+            <div class="avatar"><img src="images/icons/3.svg" width="80px"></div>
+            <div class="avatar"><img src="images/icons/4.svg" width="80px"></div>
+            <div class="avatar"><img src="images/icons/5.svg" width="80px"></div>
+            <div class="avatar"><img src="images/icons/6.svg" width="80px"></div>
+            <div class="avatar"><img src="images/icons/7.svg" width="80px"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div id="endscreen">
+        <div id="close-endscreen">&#10008;</div>
+        <p>Veronica9856 vann med</p><h2> 187 poäng!</h2>
+      </div>
+      <script src="script.js"></script>
+  </body>
+  </html>
