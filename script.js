@@ -75,18 +75,8 @@ class Player {
       this.fields = fields;
       this.myturn = false;
       this.round = 0;
-      this.setupPlayer();
-   }
-   setupPlayer() {
-      this.fields[0].children[0].innerText = this.name;
-   }
+      this.dice_values;
 
-   drawTurn(dice_values, turn) {
-      this.myturn = turn;
-      this.round++;
-      if (this.round == 16) {
-         game.endGame();
-      }
       this.fields[0].addEventListener('mousemove', (event) => {
          if (this.myturn) {
             if (this.round < 7) {
@@ -102,7 +92,7 @@ class Player {
                      ) {
                         event.target.innerText = this.countValues(
                            i,
-                           dice_values
+                           this.dice_values
                         );
                      }
                   }
@@ -120,7 +110,7 @@ class Player {
                      ) {
                         event.target.innerText = this.countPairs(
                            i,
-                           dice_values,
+                           this.dice_values,
                            event.target
                         );
                      }
@@ -129,19 +119,36 @@ class Player {
             }
          }
       });
+
       this.fields[0].addEventListener('click', (event) => {
-         if (event.target.classList.contains('free')) {
-            event.target.classList.remove('free');
-            event.target.parentElement.classList.remove('green');
-            this.myturn = false;
-            if (this.round < 7) {
-               this.countScore();
-            } else {
-               this.countTotal();
+         if (this.myturn) {
+            if (event.target.classList.contains('free')) {
+               event.target.classList.remove('free');
+               event.target.parentElement.classList.remove('green');
+               this.myturn = false;
+               if (this.round < 7) {
+                  this.countScore();
+               } else {
+                  this.countTotal();
+               }
+               game.playTurn();
             }
-            game.playTurn();
          }
       });
+
+      this.setupPlayer();
+   }
+   setupPlayer() {
+      this.fields[0].children[0].innerText = this.name;
+   }
+
+   drawTurn(dice_values, turn) {
+      this.dice_values = dice_values;
+      this.myturn = turn;
+      this.round++;
+      if (this.round == 16) {
+         game.endGame();
+      }
    }
 
    countValues(row_value, values) {
@@ -358,6 +365,11 @@ class Game {
       end_splash.innerHTML = `<div id="close-endscreen">&#10008;</div>
       <p>${winner.name} vann med</p><h2>${winner.score} poäng!</h2>`;
 
+      localStorage.setItem(
+         `winner${localStorage.length + 1}`,
+         `${winner.name} ${winner.score}`
+      );
+
       let end_btn = document.getElementById('close-endscreen');
       this.clearDice();
       end_btn.addEventListener('click', () => {
@@ -380,6 +392,7 @@ window.addEventListener('DOMContentLoaded', () => {
    let add_player_button_4 = document.getElementById('btn4');
    let splash = document.getElementById('splash');
    let start_btn = document.getElementById('start');
+   let highscore = document.getElementById('highscore');
    start_btn.addEventListener('click', () => {
       splash.style.display = 'block';
       start_btn.style.display = 'none';
@@ -397,4 +410,27 @@ window.addEventListener('DOMContentLoaded', () => {
    add_player_button_4.addEventListener('click', () => {
       game = new Game(4);
    });
+   highscores = [];
+   for (let i = 1; i < localStorage.length + 1; i++) {
+      if (localStorage.getItem(`winner${i}`)) {
+         let tmp = localStorage.getItem(`winner${i}`).split(' ');
+         let obj = { name: `${tmp[0]}`, score: `${tmp[1]}` };
+         highscores.push(obj);
+      }
+   }
+
+   highscores.sort((a, b) => b.score - a.score);
+
+   for (let winner of highscores) {
+      let p_tag_left = document.createElement('p');
+      let p_tag_right = document.createElement('p');
+      let name = document.createTextNode(winner.name);
+      let score = document.createTextNode(winner.score + ' poäng');
+      p_tag_left.appendChild(name);
+      p_tag_right.appendChild(score);
+      highscore.children[0].appendChild(p_tag_left);
+      highscore.children[1].appendChild(p_tag_right);
+
+      // highscore.innerHTML += `${winner.name} ${winner.score} poäng<br>`;
+   }
 });

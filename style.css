@@ -180,6 +180,43 @@ h1 {
       background-color: rgb(255, 255, 255);
    }
 }
+#highscore {
+   display: flex;
+   align-items: space-around;
+   font-size: 1.1em;
+   margin-top: -30px;
+}
+.score_left {
+   text-align: right;
+}
+.score_left p,
+.score_right p {
+   margin-bottom: -10px;
+   background-color: rgba(235, 92, 92, 0.249);
+}
+.score_left p:nth-child(odd) {
+   background-color: rgba(240, 248, 255, 0.555);
+}
+.score_right p:nth-child(odd) {
+   background-color: rgba(240, 248, 255, 0.678);
+}
+
+.score_right {
+   text-align: left;
+   margin-left: 3px;
+}
+.highscore_wrapper {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: rgba(209, 203, 24, 0.308);
+   width: 550px;
+   margin-top: 60px;
+   margin-left: 10px;
+   padding-bottom: 20px;
+   text-align: center;
+}
 #splash {
    display: none;
    position: absolute;
