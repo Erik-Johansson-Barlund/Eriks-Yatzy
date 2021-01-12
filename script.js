@@ -129,10 +129,7 @@ class Player {
       });
 
       this.fields[0].addEventListener('click', (event) => {
-         //Lägg in funktion så att man inte kan komma framåt genom att klicka
-         // på det fältet som man inte är på
          if (this.myturn) {
-            //console.log(event);
             if (event.target.classList.contains('free')) {
                if (this.round < 7) {
                   if (event.target.classList.contains('round1')) {
