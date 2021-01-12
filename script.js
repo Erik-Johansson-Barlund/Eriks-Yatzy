@@ -65,6 +65,23 @@ class Dice {
             value++;
          }
       });
+      for (let hide = 0; hide < draw_dice.length; hide++) {
+         if (draw_dice[hide].children[1].checked == false) {
+            draw_dice[hide].style.display = 'none';
+            draw_dice[
+               hide
+            ].parentElement.innerHTML += `<div class="animation"><img src="images/dice/diceroll.gif?a=${Math.random()}" width="103px" style="margin-top: -80px; margin-left: -15px;"></img></div>`;
+         }
+      }
+      let animation = document.getElementsByClassName('animation');
+      setTimeout(() => {
+         Array.from(animation).forEach((animated_die) => {
+            animated_die.style.display = 'none';
+         });
+         for (let hide = 0; hide < draw_dice.length; hide++) {
+            draw_dice[hide].style.display = 'block';
+         }
+      }, 600);
    }
 }
 
@@ -308,7 +325,6 @@ class Game {
       this.players = [];
       this.whos_turn = 0;
       this.elements = document.getElementsByClassName('score_board');
-      this.clear_dice = document.querySelectorAll('.die');
    }
    setup() {
       document.getElementById('no-of-players').style.display = 'none';
@@ -395,9 +411,20 @@ class Game {
       });
    }
    clearDice() {
-      this.clear_dice.forEach((die) => {
-         die.innerHTML = `<label for="die"><img src="images/dice/blank.png" width="75px"></label>
-			<input type="checkbox" value="die" id="die" disabled="true">`;
+      let clear_dice = document.getElementsByClassName('die');
+      let animations = document.getElementsByClassName('animation');
+      while (animations.length > 0) {
+         animations[0].parentNode.removeChild(animations[0]);
+      }
+      Array.from(clear_dice).forEach((die) => {
+         try {
+            die.children[0].innerHTML =
+               '<img src="images/dice/blank.png" width="75px">';
+            die.children[1].checked = false;
+            die.children[1].disabled = true;
+         } catch {
+            console.log('fångad');
+         }
       });
    }
 }
@@ -450,3 +477,11 @@ window.addEventListener('DOMContentLoaded', () => {
       highscore.children[1].appendChild(p_tag_right);
    }
 });
+
+let anim_gif = fetch('images/dice/diceroll.gif');
+let dice1 = fetch('images/dice/1.png');
+let dice2 = fetch('images/dice/2.png');
+let dice3 = fetch('images/dice/3.png');
+let dice4 = fetch('images/dice/4.png');
+let dice5 = fetch('images/dice/5.png');
+let dice6 = fetch('images/dice/6.png');

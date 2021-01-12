@@ -121,34 +121,41 @@
        
         <div class="dice-wrapper">
           <div class="dicediv">
-            
+            <div class="die-wrapper">
             <div class="die"> 
               <label for="die1">
                 <img src="images/dice/blank.png" width="75px">
               </label>
               <input type="checkbox" value="die1" id="die1" disabled="true"><br>
-              
+            </div>
             </div> 
-            <div class="die">
+            <div class="die-wrapper">
+            <div class="die die__odd">
               <label for="die2">
                  <img src="images/dice/blank.png" width="75px">
               </label>
               <input type="checkbox" value="die2" id="die2" disabled="true"><br>
-              
+            </div>
             </div> 
+            <div class="die-wrapper">
             <div class="die">
               <img src="images/dice/blank.png" width="75px">
               <input type="checkbox" value="die3" id="die3" disabled="true"><br>
             </div> 
-            <div class="die">
+          </div>
+            <div class="die-wrapper">
+            <div class="die die__odd">
               <img src="images/dice/blank.png" width="75px">
               <input type="checkbox" value="die4" id="die4" disabled="true"><br>
             </div>  
+          </div>
+            <div class="die-wrapper">
             <div class="die">
               <img src="images/dice/blank.png" width="75px">
               <input type="checkbox" value="die5" id="die5" disabled="true"><br>
             </div> 
           </div>
+        </div>
             <div class="throw">
               <p id="throws-left">Antal kast kvar: </p>
               <button type="button" id="checkdice">Kasta tärningar</button>

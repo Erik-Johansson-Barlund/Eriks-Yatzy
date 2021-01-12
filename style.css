@@ -92,6 +92,10 @@ h1 {
    height: 90px;
    padding: 30px;
 }
+.die-wrapper {
+   margin-top: -10px;
+}
+
 .die {
    width: 75px;
    height: 75px;
@@ -101,7 +105,7 @@ h1 {
    background-color: rgba(250, 230, 78, 0.979);
    transform: rotate(-2deg);
 }
-.die:nth-child(odd) {
+.die__odd {
    transform: rotate(5deg);
 }
 .die:hover {
