@@ -87,9 +87,13 @@ class Player {
                      )
                   ) {
                      event.target.parentElement.children[i].innerText = '';
+                     event.target.parentElement.children[i].classList.remove(
+                        'lighten'
+                     );
                      if (
                         event.target == event.target.parentElement.children[i]
                      ) {
+                        event.target.classList.add('lighten');
                         event.target.innerText = this.countValues(
                            i,
                            this.dice_values
@@ -104,10 +108,14 @@ class Player {
                         'free'
                      )
                   ) {
+                     event.target.parentElement.children[i].classList.remove(
+                        'lighten'
+                     );
                      event.target.parentElement.children[i].innerText = '';
                      if (
                         event.target == event.target.parentElement.children[i]
                      ) {
+                        event.target.classList.add('lighten');
                         event.target.innerText = this.countPairs(
                            i,
                            this.dice_values,
@@ -124,6 +132,7 @@ class Player {
          if (this.myturn) {
             if (event.target.classList.contains('free')) {
                event.target.classList.remove('free');
+               event.target.classList.remove('lighten');
                event.target.parentElement.classList.remove('green');
                this.myturn = false;
                if (this.round < 7) {
@@ -430,7 +439,5 @@ window.addEventListener('DOMContentLoaded', () => {
       p_tag_right.appendChild(score);
       highscore.children[0].appendChild(p_tag_left);
       highscore.children[1].appendChild(p_tag_right);
-
-      // highscore.innerHTML += `${winner.name} ${winner.score} poäng<br>`;
    }
 });
