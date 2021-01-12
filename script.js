@@ -129,18 +129,30 @@ class Player {
       });
 
       this.fields[0].addEventListener('click', (event) => {
+         //Lägg in funktion så att man inte kan komma framåt genom att klicka
+         // på det fältet som man inte är på
          if (this.myturn) {
+            //console.log(event);
             if (event.target.classList.contains('free')) {
-               event.target.classList.remove('free');
-               event.target.classList.remove('lighten');
-               event.target.parentElement.classList.remove('green');
-               this.myturn = false;
                if (this.round < 7) {
-                  this.countScore();
+                  if (event.target.classList.contains('round1')) {
+                     event.target.classList.remove('free');
+                     event.target.classList.remove('lighten');
+                     event.target.parentElement.classList.remove('green');
+                     this.myturn = false;
+                     this.countScore();
+                     game.playTurn();
+                  }
                } else {
-                  this.countTotal();
+                  if (event.target.classList.contains('round2')) {
+                     event.target.classList.remove('free');
+                     event.target.classList.remove('lighten');
+                     event.target.parentElement.classList.remove('green');
+                     this.myturn = false;
+                     this.countTotal();
+                     game.playTurn();
+                  }
                }
-               game.playTurn();
             }
          }
       });
