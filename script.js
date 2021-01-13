@@ -54,6 +54,11 @@ class Dice {
       let draw_dice = document.getElementsByClassName('die');
       let value = 1;
       throws_text.innerText = `Antal kast kvar: ${this.throws_left}`;
+      let animations = document.getElementsByClassName('animation');
+      while (animations.length > 0) {
+         animations[0].parentNode.removeChild(animations[0]);
+      }
+
       Array.from(draw_dice).forEach((die) => {
          if (die.children[1].checked == false) {
             die.innerHTML = `<label for="die${value}">
@@ -337,6 +342,7 @@ class Game {
       this.whos_turn = 0;
       this.elements = document.getElementsByClassName('score_board');
    }
+
    setup() {
       document.getElementById('no-of-players').style.display = 'none';
       document.getElementById('player-info').style.display = 'block';
@@ -393,6 +399,7 @@ class Game {
       let dice = new Dice();
       this.players[this.whos_turn - 1].drawTurn(dice, true);
    }
+
    endGame() {
       let end_splash = document.getElementById('endscreen');
       end_splash.style.display = 'block';
@@ -421,12 +428,9 @@ class Game {
          location.reload();
       });
    }
+
    clearDice() {
       let clear_dice = document.getElementsByClassName('die');
-      let animations = document.getElementsByClassName('animation');
-      while (animations.length > 0) {
-         animations[0].parentNode.removeChild(animations[0]);
-      }
       Array.from(clear_dice).forEach((die) => {
          try {
             die.children[0].innerHTML =
@@ -476,7 +480,6 @@ window.addEventListener('DOMContentLoaded', () => {
    }
 
    highscores.sort((a, b) => b.score - a.score);
-
    for (let winner of highscores) {
       let p_tag_left = document.createElement('p');
       let p_tag_right = document.createElement('p');
