@@ -94,6 +94,17 @@ class Player {
       this.round = 0;
       this.dice_values;
 
+      this.fields[0].addEventListener('mouseleave', () => {
+         if (this.myturn) {
+            for (let field of Array.from(this.fields[0].children)) {
+               if (field.classList.contains('free')) {
+                  field.classList.remove('lighten');
+                  field.innerText = '';
+               }
+            }
+         }
+      });
+
       this.fields[0].addEventListener('mousemove', (event) => {
          if (this.myturn) {
             if (this.round < 7) {
